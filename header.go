@@ -144,6 +144,9 @@ func (h *Header) setSampleGL(geno *SampleGenotype, value string, isPL bool) erro
 }
 
 func (h *Header) setSampleGT(geno *SampleGenotype, value string) error {
+	if value == "" {
+		value = "."
+	}
 	if len(geno.GT) != 0 {
 		geno.GT = geno.GT[:0]
 	}
